@@ -1,35 +1,100 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState } from 'react';
 
-function App() {
-  const [count, setCount] = useState(0)
+const Form = () => {
+  const [formData, setFormData] = useState({
+    imie: '',
+    nazwisko: '',
+    ulica: '',
+    miasto: ''
+  });
+
+  const [submittedData, setSubmittedData] = useState([]);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Dodajemy dane z formularza do tabeli
+    setSubmittedData([...submittedData, formData]);
+    // Resetujemy formularz
+    setFormData({ imie: '', nazwisko: '', ulica: '', miasto: '' });
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <div>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label>Imię:</label>
+          <input
+            type="text"
+            name="imie"
+            value={formData.imie}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div>
+          <label>Nazwisko:</label>
+          <input
+            type="text"
+            name="nazwisko"
+            value={formData.nazwisko}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div>
+          <label>Ulica:</label>
+          <input
+            type="text"
+            name="ulica"
+            value={formData.ulica}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div>
+          <label>Miasto:</label>
+          <input
+            type="text"
+            name="miasto"
+            value={formData.miasto}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <button type="submit">Prześlij</button>
+      </form>
 
-export default App
+      <h2>Wprowadzone dane</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Imię</th>
+            <th>Nazwisko</th>
+            <th>Ulica</th>
+            <th>Miasto</th>
+          </tr>
+        </thead>
+        <tbody>
+          {submittedData.map((data, index) => (
+            <tr key={index}>
+              <td>{data.imie}</td>
+              <td>{data.nazwisko}</td>
+              <td>{data.ulica}</td>
+              <td>{data.miasto}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+};
+
+export default Form;
