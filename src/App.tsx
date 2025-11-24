@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent, FormEvent } from 'react';
+import { useState, ChangeEvent, FormEvent } from 'react';
 
 // Definicja typu dla danych w formularzu
 interface FormData {
@@ -40,6 +40,7 @@ const Form = () => {
 
   return (
     <div>
+      <h1>Formularz</h1>
       <form onSubmit={handleSubmit}>
         <div>
           <label>Imię:</label>
