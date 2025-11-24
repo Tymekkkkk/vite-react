@@ -1,16 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, ChangeEvent, FormEvent } from 'react';
+
+// Definicja typu dla danych w formularzu
+interface FormData {
+  imie: string;
+  nazwisko: string;
+  ulica: string;
+  miasto: string;
+}
 
 const Form = () => {
-  const [formData, setFormData] = useState({
+  // Stan dla formularza (Typowanie za pomocą interfejsu FormData)
+  const [formData, setFormData] = useState<FormData>({
     imie: '',
     nazwisko: '',
     ulica: '',
     miasto: ''
   });
 
-  const [submittedData, setSubmittedData] = useState([]);
+  // Stan dla przesłanych danych
+  const [submittedData, setSubmittedData] = useState<FormData[]>([]);
 
-  const handleChange = (e) => {
+  // Obsługuje zmiany w formularzu
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
@@ -18,9 +29,10 @@ const Form = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  // Obsługuje przesyłanie formularza
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    // Dodajemy dane z formularza do tabeli
+    // Dodajemy dane do tabeli
     setSubmittedData([...submittedData, formData]);
     // Resetujemy formularz
     setFormData({ imie: '', nazwisko: '', ulica: '', miasto: '' });
