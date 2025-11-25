@@ -39,7 +39,7 @@ function App() {
   return (
     <div className="App">
       <header>
-        <h1>📋 Formularz danych osobowych</h1>
+        <h3>📋 Formularz danych osobowych</h3>
       </header>
 
       <section className="form-section">
