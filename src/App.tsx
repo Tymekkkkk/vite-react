@@ -1,6 +1,6 @@
 import { useState, ChangeEvent, FormEvent } from 'react';
 
-// Definicja typu dla danych w formularzu
+
 interface FormData {
   imie: string;
   nazwisko: string;
@@ -9,7 +9,7 @@ interface FormData {
 }
 
 const Form = () => {
-  // Stan dla formularza (Typowanie za pomocą interfejsu FormData)
+ 
   const [formData, setFormData] = useState<FormData>({
     imie: '',
     nazwisko: '',
@@ -17,10 +17,10 @@ const Form = () => {
     miasto: ''
   });
 
-  // Stan dla przesłanych danych
+  
   const [submittedData, setSubmittedData] = useState<FormData[]>([]);
 
-  // Obsługuje zmiany w formularzu
+ 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData({
@@ -29,7 +29,7 @@ const Form = () => {
     });
   };
 
-  // Obsługuje przesyłanie formularza
+
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     // Dodajemy dane do tabeli
