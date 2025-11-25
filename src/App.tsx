@@ -1,5 +1,5 @@
-import { useState, ChangeEvent, FormEvent } from 'react';
-
+import { useState, ChangeEvent, FormEvent } from "react";
+import "./App.css";
 
 interface FormData {
   imie: string;
@@ -8,39 +8,39 @@ interface FormData {
   miasto: string;
 }
 
-const Form = () => {
- 
+function App() {
   const [formData, setFormData] = useState<FormData>({
-    imie: '',
-    nazwisko: '',
-    ulica: '',
-    miasto: ''
+    imie: "",
+    nazwisko: "",
+    ulica: "",
+    miasto: "",
   });
 
-  
   const [submittedData, setSubmittedData] = useState<FormData[]>([]);
 
- 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
-      [name]: value
+      [name]: value,
     });
   };
 
-
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    // Dodajemy dane do tabeli
     setSubmittedData([...submittedData, formData]);
-    // Resetujemy formularz
-    setFormData({ imie: '', nazwisko: '', ulica: '', miasto: '' });
+    setFormData({ imie: "", nazwisko: "", ulica: "", miasto: "" });
+  };
+
+  const handleDelete = (index: number) => {
+    const newData = submittedData.filter((_, i) => i !== index);
+    setSubmittedData(newData);
   };
 
   return (
-    <div>
-      <h1>Formularz</h1>
+    <div className="App">
+      <h1>📋 Formularz danych osobowych</h1>
+
       <form onSubmit={handleSubmit}>
         <div>
           <label>Imię:</label>
@@ -93,6 +93,7 @@ const Form = () => {
             <th>Nazwisko</th>
             <th>Ulica</th>
             <th>Miasto</th>
+            <th>Akcje</th>
           </tr>
         </thead>
         <tbody>
@@ -102,12 +103,15 @@ const Form = () => {
               <td>{data.nazwisko}</td>
               <td>{data.ulica}</td>
               <td>{data.miasto}</td>
+              <td>
+                <button onClick={() => handleDelete(index)}>Usuń</button>
+              </td>
             </tr>
           ))}
         </tbody>
       </table>
     </div>
   );
-};
+}
 
-export default Form;
+export default App;
