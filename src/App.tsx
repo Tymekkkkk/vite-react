@@ -20,96 +20,110 @@ function App() {
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
+    setFormData((prev) => ({
+      ...prev,
       [name]: value,
-    });
+    }));
   };
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    setSubmittedData([...submittedData, formData]);
+    setSubmittedData((prev) => [...prev, formData]);
     setFormData({ imie: "", nazwisko: "", ulica: "", miasto: "" });
   };
 
   const handleDelete = (index: number) => {
-    const newData = submittedData.filter((_, i) => i !== index);
-    setSubmittedData(newData);
+    setSubmittedData((prev) => prev.filter((_, i) => i !== index));
   };
 
   return (
     <div className="App">
-      <h1>📋 Formularz danych osobowych</h1>
+      <header>
+        <h1>📋 Formularz danych osobowych</h1>
+      </header>
 
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Imię:</label>
-          <input
-            type="text"
-            name="imie"
-            value={formData.imie}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label>Nazwisko:</label>
-          <input
-            type="text"
-            name="nazwisko"
-            value={formData.nazwisko}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label>Ulica:</label>
-          <input
-            type="text"
-            name="ulica"
-            value={formData.ulica}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label>Miasto:</label>
-          <input
-            type="text"
-            name="miasto"
-            value={formData.miasto}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <button type="submit">Prześlij</button>
-      </form>
+      <section className="form-section">
+        <form onSubmit={handleSubmit}>
+          <div>
+            <label>Imię:</label>
+            <input
+              type="text"
+              name="imie"
+              value={formData.imie}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div>
+            <label>Nazwisko:</label>
+            <input
+              type="text"
+              name="nazwisko"
+              value={formData.nazwisko}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div>
+            <label>Ulica:</label>
+            <input
+              type="text"
+              name="ulica"
+              value={formData.ulica}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div>
+            <label>Miasto:</label>
+            <input
+              type="text"
+              name="miasto"
+              value={formData.miasto}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <button type="submit">➕ Dodaj</button>
+        </form>
+      </section>
 
-      <h2>Wprowadzone dane</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Imię</th>
-            <th>Nazwisko</th>
-            <th>Ulica</th>
-            <th>Miasto</th>
-            <th>Akcje</th>
-          </tr>
-        </thead>
-        <tbody>
-          {submittedData.map((data, index) => (
-            <tr key={index}>
-              <td>{data.imie}</td>
-              <td>{data.nazwisko}</td>
-              <td>{data.ulica}</td>
-              <td>{data.miasto}</td>
-              <td>
-                <button onClick={() => handleDelete(index)}>Usuń</button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <section className="table-section">
+        <h2>📑 Wprowadzone dane</h2>
+        {submittedData.length === 0 ? (
+          <p>Brak danych – wypełnij formularz powyżej.</p>
+        ) : (
+          <table>
+            <thead>
+              <tr>
+                <th>Imię</th>
+                <th>Nazwisko</th>
+                <th>Ulica</th>
+                <th>Miasto</th>
+                <th>Akcje</th>
+              </tr>
+            </thead>
+            <tbody>
+              {submittedData.map((data, index) => (
+                <tr key={index}>
+                  <td>{data.imie}</td>
+                  <td>{data.nazwisko}</td>
+                  <td>{data.ulica}</td>
+                  <td>{data.miasto}</td>
+                  <td>
+                    <button
+                      className="delete-btn"
+                      onClick={() => handleDelete(index)}
+                    >
+                      ❌ Usuń
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
+      </section>
     </div>
   );
 }
