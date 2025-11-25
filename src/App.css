@@ -6,7 +6,7 @@
   color: #333;
 }
 
-header h1 {
+h1 {
   text-align: center;
   color: #4a50d1;
   margin-bottom: 2rem;
@@ -81,4 +81,53 @@ table tr:nth-child(even) {
 
 table tr:hover {
   background-color: #e6e6ff;
+}
+
+/* Styl dla przycisku Usuń */
+table button {
+  background: #d9534f;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+table button:hover {
+  background: #c9302c;
+}
+
+/* Responsywność */
+@media (max-width: 600px) {
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+
+  table tr {
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 10px;
+    background: #fff;
+  }
+
+  table td {
+    text-align: left;
+    padding: 8px;
+    border: none;
+    position: relative;
+  }
+
+  table td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    color: #4a50d1;
+  }
+
+  table th {
+    display: none;
+  }
 }
