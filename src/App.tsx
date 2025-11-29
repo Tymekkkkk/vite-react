@@ -90,7 +90,8 @@ function App() {
         </form>
       </section>
 
-      <section className="table-section">
+      <section className=\"table-section\">
+        <img src={image} alt="photo" style={{ width: "200px", display: "block", margin: "10px auto" }} />
         <h2>📑 Wprowadzone dane</h2>
         {submittedData.length === 0 ? (
           <p>Brak danych – wypełnij formularz powyżej.</p>
