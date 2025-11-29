@@ -8,8 +8,8 @@
 
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
+  align-items: center;  /* Wycentrowanie w poziomie */
+  text-align: center;   /* Wycentrowanie tekstu */
 }
 
 /* Nagłówek */
@@ -25,7 +25,7 @@ header img,
 .table-section img {
   width: 200px;
   display: block;
-  margin: 0 auto 20px;
+  margin: 0 auto 20px; /* wycentrowane automatycznie */
   border-radius: 8px;
 }
 
@@ -38,11 +38,16 @@ form {
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Wycentrowanie inputów i przycisku */
 }
 
 form div {
   margin-bottom: 15px;
-  text-align: center;
+  width: 100%;
+  text-align: center; /* Label i input wycentrowane */
 }
 
 form label {
@@ -52,7 +57,8 @@ form label {
 }
 
 form input {
-  width: 100%;
+  width: 90%; /* troche mniejszy od pełnej szerokości dla estetyki */
+  max-width: 400px;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -66,8 +72,9 @@ form button {
   border-radius: 4px;
   cursor: pointer;
   transition: 0.3s;
-  width: 100%;
+  width: 50%; /* mniejszy przycisk, wycentrowany */
   font-size: 16px;
+  margin-top: 10px;
 }
 
 form button:hover {
@@ -147,5 +154,13 @@ table button:hover {
 
   table th {
     display: none;
+  }
+
+  form input {
+    width: 95%; /* inputy dopasowane do małego ekranu */
+  }
+
+  form button {
+    width: 80%;
   }
 }
