@@ -40,7 +40,6 @@ function App() {
   return (
     <div className="App">
       <header>
-        <img src={image} alt="logo" style={{ width: "120px" }} />
         <h3>📋 Formularz danych osobowych</h3>
       </header>
 
