@@ -38,7 +38,7 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div className=\"App\" style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
       <header>
         <img src={image} alt="logo" style={{ width: "120px" }} />
         <h3>📋 Formularz danych osobowych</h3>
