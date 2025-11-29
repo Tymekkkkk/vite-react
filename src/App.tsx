@@ -1,5 +1,6 @@
 import { useState, ChangeEvent, FormEvent } from "react";
 import "./App.css";
+import image from "./assets/pobrane.png";
 
 interface FormData {
   imie: string;
@@ -39,6 +40,7 @@ function App() {
   return (
     <div className="App">
       <header>
+        <img src={image} alt="logo" style={{ width: "120px" }} />
         <h3>📋 Formularz danych osobowych</h3>
       </header>
 
