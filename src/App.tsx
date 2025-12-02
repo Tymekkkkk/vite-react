@@ -45,6 +45,10 @@ function App() {
 
       <section className="form-section">
         <form onSubmit={handleSubmit}>
+
+          {/* --- BANNER ZDJĘCIA W FORMULARZU --- */}
+          <img src={image} alt="banner" className="form-banner" />
+
           <div>
             <label>Imię:</label>
             <input
@@ -55,6 +59,7 @@ function App() {
               required
             />
           </div>
+
           <div>
             <label>Nazwisko:</label>
             <input
@@ -65,6 +70,7 @@ function App() {
               required
             />
           </div>
+
           <div>
             <label>Ulica:</label>
             <input
@@ -75,6 +81,7 @@ function App() {
               required
             />
           </div>
+
           <div>
             <label>Miasto:</label>
             <input
@@ -85,13 +92,14 @@ function App() {
               required
             />
           </div>
+
           <button type="submit">➕ Dodaj</button>
         </form>
       </section>
 
       <section className="table-section">
-        <img src={image} alt="photo" style={{ width: "200px", display: "block", margin: "10px auto" }} />
         <h2>📑 Wprowadzone dane</h2>
+
         {submittedData.length === 0 ? (
           <p>Brak danych – wypełnij formularz powyżej.</p>
         ) : (
@@ -105,6 +113,7 @@ function App() {
                 <th>Akcje</th>
               </tr>
             </thead>
+
             <tbody>
               {submittedData.map((data, index) => (
                 <tr key={index}>
@@ -123,6 +132,7 @@ function App() {
                 </tr>
               ))}
             </tbody>
+
           </table>
         )}
       </section>
