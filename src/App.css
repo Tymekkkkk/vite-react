@@ -91,17 +91,20 @@ table th, table td {
   text-align: center;
 }
 
+/* NAGŁÓWEK TABELI */
 table th {
   background-color: #4a50d1;
   color: white;
 }
 
-table tr:nth-child(even) {
-  background-color: #f2f2f2;
+/* --- KLUCZOWA ZMIANA: jasny kolor dla KAŻDEGO nowego wiersza --- */
+table tr {
+  background-color: #eef0ff;   /* jasny delikatny fiolet */
 }
 
+/* Usuwamy hover — nie jest już potrzebny */
 table tr:hover {
-  background-color: #e6e6ff;
+  background-color: #eef0ff;
 }
 
 /* Styl dla przycisku usuń */
@@ -130,7 +133,7 @@ table button:hover {
     border: 1px solid #ddd;
     border-radius: 6px;
     padding: 10px;
-    background: #fff;
+    background: #eef0ff;
   }
 
   table td {
