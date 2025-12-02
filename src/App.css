@@ -5,11 +5,7 @@
   padding: 2rem;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: #333;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;  /* Wycentrowanie w poziomie */
-  text-align: center;   /* Wycentrowanie tekstu */
+  text-align: center;
 }
 
 /* Nagłówek */
@@ -20,13 +16,13 @@ header {
   gap: 15px;
 }
 
-/* Styl zdjęcia */
-header img,
-.table-section img {
-  width: 200px;
+/* Banner w formularzu */
+.form-banner {
+  width: 100%;
+  max-width: 450px;
+  border-radius: 10px;
   display: block;
-  margin: 0 auto 20px; /* wycentrowane automatycznie */
-  border-radius: 8px;
+  margin: 0 auto 20px;
 }
 
 /* Formularz */
@@ -41,13 +37,13 @@ form {
 
   display: flex;
   flex-direction: column;
-  align-items: center; /* Wycentrowanie inputów i przycisku */
+  align-items: center;
 }
 
 form div {
   margin-bottom: 15px;
   width: 100%;
-  text-align: center; /* Label i input wycentrowane */
+  text-align: center;
 }
 
 form label {
@@ -57,7 +53,7 @@ form label {
 }
 
 form input {
-  width: 90%; /* troche mniejszy od pełnej szerokości dla estetyki */
+  width: 90%;
   max-width: 400px;
   padding: 10px;
   border: 1px solid #ccc;
@@ -72,7 +68,7 @@ form button {
   border-radius: 4px;
   cursor: pointer;
   transition: 0.3s;
-  width: 50%; /* mniejszy przycisk, wycentrowany */
+  width: 50%;
   font-size: 16px;
   margin-top: 10px;
 }
@@ -144,20 +140,12 @@ table button:hover {
     position: relative;
   }
 
-  table td::before {
-    content: attr(data-label);
-    font-weight: bold;
-    display: block;
-    margin-bottom: 5px;
-    color: #4a50d1;
-  }
-
   table th {
     display: none;
   }
 
   form input {
-    width: 95%; /* inputy dopasowane do małego ekranu */
+    width: 95%;
   }
 
   form button {
