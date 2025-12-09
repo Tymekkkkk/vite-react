@@ -14,13 +14,16 @@ function App() {
     imie: "",
     nazwisko: "",
     ulica: "",
-    miasto: ""
+    miasto: "",
   });
 
   const [submittedData, setSubmittedData] = useState<FormData[]>([]);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
+    setFormData(prev => ({
+      ...prev,
+      [e.target.name]: e.target.value
+    }));
   };
 
   const handleSubmit = (e: FormEvent) => {
@@ -32,39 +35,38 @@ function App() {
   return (
     <div className="layout">
 
-      <div className="top-bar">
-        REACT
-      </div>
+      {/* GÓRNY PASEK */}
+      <div className="top-bar">REACT</div>
 
-      <div className="center-all">
+      {/* ŚRODEK */}
+      <div className="center-container">
 
-        <h2>📋 Formularz danych osobowych</h2>
+        <h2 className="title">📋 Formularz danych osobowych</h2>
 
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="form-box">
 
-          <img src={image} className="form-banner" />
+          <img src={image} alt="banner" className="form-banner" />
 
           <label>Imię:</label>
-          <input name="imie" value={formData.imie} onChange={handleChange} />
+          <input name="imie" value={formData.imie} onChange={handleChange} required />
 
           <label>Nazwisko:</label>
-          <input name="nazwisko" value={formData.nazwisko} onChange={handleChange} />
+          <input name="nazwisko" value={formData.nazwisko} onChange={handleChange} required />
 
           <label>Ulica:</label>
-          <input name="ulica" value={formData.ulica} onChange={handleChange} />
+          <input name="ulica" value={formData.ulica} onChange={handleChange} required />
 
           <label>Miasto:</label>
-          <input name="miasto" value={formData.miasto} onChange={handleChange} />
+          <input name="miasto" value={formData.miasto} onChange={handleChange} required />
 
-          <button type="submit">Dodaj</button>
-
+          <button type="submit">➕ Dodaj</button>
         </form>
 
-        <div className="table-box">
+        <div className="table-wrapper">
           <h2>📑 Dane</h2>
 
           {submittedData.length === 0 ? (
-            <p>Brak danych.</p>
+            <p>Brak danych – wypełnij formularz powyżej.</p>
           ) : (
             <table>
               <thead>
@@ -76,12 +78,12 @@ function App() {
                 </tr>
               </thead>
               <tbody>
-                {submittedData.map((e, i) => (
-                  <tr key={i}>
-                    <td>{e.imie}</td>
-                    <td>{e.nazwisko}</td>
-                    <td>{e.ulica}</td>
-                    <td>{e.miasto}</td>
+                {submittedData.map((item, index) => (
+                  <tr key={index}>
+                    <td>{item.imie}</td>
+                    <td>{item.nazwisko}</td>
+                    <td>{item.ulica}</td>
+                    <td>{item.miasto}</td>
                   </tr>
                 ))}
               </tbody>
@@ -91,10 +93,8 @@ function App() {
 
       </div>
 
-      <div className="footer">
-        2025
-      </div>
-
+      {/* DOLNY PASEK */}
+      <div className="footer">2025</div>
     </div>
   );
 }
