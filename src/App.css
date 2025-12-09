@@ -21,13 +21,20 @@
 .content {
   flex: 1;
   display: flex;
-  flex-direction: column;
-  align-items: center; /* WYŚRODKOWANIE POZIOME */
-  justify-content: flex-start;
+  justify-content: center;
+  padding: 20px 0;
   width: 100%;
-  padding-top: 20px;
 }
 
+/* KONTENER WYŚRODKOWUJĄCY WSZYSTKO */
+.center-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;      /* WYSRODKOWANIE */
+  width: 100%;
+  max-width: 650px;         /* SZEROKOŚĆ ŚRODKOWEJ KOLUMNY */
+  padding: 0 10px;
+}
 
 /* Stopka */
 .footer {
@@ -40,16 +47,12 @@
 }
 
 
-/* === TWOJE ISTNIEJĄCE STYLI DOPASOWANE === */
+/* === FORMULARZ + ELEMENTY === */
 
 header {
   text-align: center;
   color: #4a50d1;
-  margin-bottom: 15px;
-}
-
-.App { /* już nie potrzebne, ale zostawiam żeby nic się nie sypało */
-  text-align: center;
+  margin: 10px 0 20px 0;
 }
 
 /* Banner */
@@ -62,7 +65,7 @@ header {
 
 /* Formularz */
 form {
-  margin: 20px auto;
+  width: 100%;
   max-width: 500px;
   padding: 20px;
   background: #ffffff;
@@ -71,6 +74,7 @@ form {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 30px;
 }
 
 /* Inputy */
@@ -108,11 +112,18 @@ form button:hover {
   background: #373aa3;
 }
 
-/* Tabela */
+
+/* === TABELA === */
+
+.table-section {
+  width: 100%;
+  max-width: 600px;
+}
+
 table {
   width: 100%;
-  margin-top: 30px;
   border-collapse: collapse;
+  margin-top: 20px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -121,7 +132,8 @@ table th {
   color: white;
 }
 
-table td, table th {
+table td,
+table th {
   border: 1px solid #ddd;
   padding: 12px;
 }
@@ -130,20 +142,34 @@ table tr {
   background: #eef0ff;
 }
 
-/* Usuń */
+/* Przyciski usuń */
 table button {
   background: #d9534f;
   color: white;
   border: none;
   padding: 6px 12px;
   border-radius: 4px;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
 table button:hover {
   background: #c9302c;
 }
-.form-section, 
-.table-section {
-  width: 100%;
-  max-width: 600px; /* szerokość formularza na środku */
+
+
+/* === RESPONSYWNOŚĆ === */
+
+@media (max-width: 600px) {
+  .center-box {
+    max-width: 95%;
+  }
+
+  form input {
+    width: 100%;
+  }
+
+  form button {
+    width: 80%;
+  }
 }
