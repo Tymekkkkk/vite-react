@@ -38,104 +38,117 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <header>
-        <h3>📋 Formularz danych osobowych</h3>
-      </header>
+    <div className="layout">
 
-      <section className="form-section">
-        <form onSubmit={handleSubmit}>
+      {/* 🔵 GÓRNY PASEK */}
+      <div className="top-bar">
+        <h1>REACT</h1>
+      </div>
 
-          {/* --- BANNER ZDJĘCIA W FORMULARZU --- */}
-          <img src={image} alt="banner" className="form-banner" />
+      {/* 🟣 ŚRODKOWY KONTENER */}
+      <div className="content">
 
-          <div>
-            <label>Imię:</label>
-            <input
-              type="text"
-              name="imie"
-              value={formData.imie}
-              onChange={handleChange}
-              required
-            />
-          </div>
+        <header>
+          <h3>📋 Formularz danych osobowych</h3>
+        </header>
 
-          <div>
-            <label>Nazwisko:</label>
-            <input
-              type="text"
-              name="nazwisko"
-              value={formData.nazwisko}
-              onChange={handleChange}
-              required
-            />
-          </div>
+        <section className="form-section">
+          <form onSubmit={handleSubmit}>
+            <img src={image} alt="banner" className="form-banner" />
 
-          <div>
-            <label>Ulica:</label>
-            <input
-              type="text"
-              name="ulica"
-              value={formData.ulica}
-              onChange={handleChange}
-              required
-            />
-          </div>
+            <div>
+              <label>Imię:</label>
+              <input
+                type="text"
+                name="imie"
+                value={formData.imie}
+                onChange={handleChange}
+                required
+              />
+            </div>
 
-          <div>
-            <label>Miasto:</label>
-            <input
-              type="text"
-              name="miasto"
-              value={formData.miasto}
-              onChange={handleChange}
-              required
-            />
-          </div>
+            <div>
+              <label>Nazwisko:</label>
+              <input
+                type="text"
+                name="nazwisko"
+                value={formData.nazwisko}
+                onChange={handleChange}
+                required
+              />
+            </div>
 
-          <button type="submit">➕ Dodaj</button>
-        </form>
-      </section>
+            <div>
+              <label>Ulica:</label>
+              <input
+                type="text"
+                name="ulica"
+                value={formData.ulica}
+                onChange={handleChange}
+                required
+              />
+            </div>
 
-      <section className="table-section">
-        <h2>📑 Wprowadzone dane</h2>
+            <div>
+              <label>Miasto:</label>
+              <input
+                type="text"
+                name="miasto"
+                value={formData.miasto}
+                onChange={handleChange}
+                required
+              />
+            </div>
 
-        {submittedData.length === 0 ? (
-          <p>Brak danych – wypełnij formularz powyżej.</p>
-        ) : (
-          <table>
-            <thead>
-              <tr>
-                <th>Imię</th>
-                <th>Nazwisko</th>
-                <th>Ulica</th>
-                <th>Miasto</th>
-                <th>Akcje</th>
-              </tr>
-            </thead>
+            <button type="submit">➕ Dodaj</button>
+          </form>
+        </section>
 
-            <tbody>
-              {submittedData.map((data, index) => (
-                <tr key={index}>
-                  <td>{data.imie}</td>
-                  <td>{data.nazwisko}</td>
-                  <td>{data.ulica}</td>
-                  <td>{data.miasto}</td>
-                  <td>
-                    <button
-                      className="delete-btn"
-                      onClick={() => handleDelete(index)}
-                    >
-                      ❌ Usuń
-                    </button>
-                  </td>
+        <section className="table-section">
+          <h2>📑 Wprowadzone dane</h2>
+
+          {submittedData.length === 0 ? (
+            <p>Brak danych – wypełnij formularz powyżej.</p>
+          ) : (
+            <table>
+              <thead>
+                <tr>
+                  <th>Imię</th>
+                  <th>Nazwisko</th>
+                  <th>Ulica</th>
+                  <th>Miasto</th>
+                  <th>Akcje</th>
                 </tr>
-              ))}
-            </tbody>
+              </thead>
 
-          </table>
-        )}
-      </section>
+              <tbody>
+                {submittedData.map((data, index) => (
+                  <tr key={index}>
+                    <td>{data.imie}</td>
+                    <td>{data.nazwisko}</td>
+                    <td>{data.ulica}</td>
+                    <td>{data.miasto}</td>
+                    <td>
+                      <button
+                        className="delete-btn"
+                        onClick={() => handleDelete(index)}
+                      >
+                        ❌ Usuń
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+
+            </table>
+          )}
+        </section>
+      </div>
+
+      {/* 🟢 STOPKA */}
+      <footer className="footer">
+        <p>2025</p>
+      </footer>
     </div>
   );
 }
