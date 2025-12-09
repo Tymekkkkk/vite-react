@@ -1,4 +1,4 @@
-/* RESET */
+/* RESET WSZYSTKIEGO */
 * {
   margin: 0;
   padding: 0;
@@ -10,99 +10,110 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background: #f5f7ff;
 }
 
-/* FULL WIDTH TOP BAR */
+/* GÓRNY PASEK FULL WIDTH */
 .top-bar {
   width: 100%;
+  text-align: center;
+  padding: 25px;
   background: #4a50d1;
   color: white;
-  text-align: center;
-  padding: 20px;
-  font-size: 30px;
+  font-size: 28px;
   font-weight: bold;
 }
 
-/* FULL WIDTH FOOTER */
+/* STOPKA FULL WIDTH */
 .footer {
   width: 100%;
-  background: #222;
-  color: white;
   text-align: center;
   padding: 20px;
-  font-size: 22px;
+  background: #222;
+  color: white;
   margin-top: auto;
+  font-size: 20px;
 }
 
 /* --- NAJWAŻNIEJSZE --- */
-/* WYŚRODKOWANIE CAŁEGO ŚRODKA BEZ LITOŚCI */
-.center-all {
+/* ŚRODEK STRONY – WYMUSZONE CENTROWANIE */
+.center-container {
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;      /* WYŚRODKOWANIE */
+  align-items: center;   /* CENTER */
   justify-content: flex-start;
   padding: 30px 0;
 }
 
 /* FORMULARZ NA ŚRODKU */
-form {
+.form-box {
   width: 100%;
-  max-width: 450px;
+  max-width: 500px;
   background: white;
-  padding: 20px;
+  padding: 25px;
   border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  box-shadow: 0 0 10px rgba(0,0,0,0.18);
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
-/* BANNER */
+/* BANNER – SZEROKI, NISKI */
 .form-banner {
   width: 100%;
+  height: 180px;        /* NISKI BANER */
+  object-fit: cover;    /* NIE ROZJEŻDŻA ZDJĘCIA */
   border-radius: 10px;
   margin-bottom: 20px;
 }
 
 /* INPUTY */
 label {
-  margin-top: 10px;
   font-weight: bold;
+  align-self: flex-start;
+  margin-top: 10px;
 }
 
 input {
-  padding: 10px;
+  width: 100%;
+  padding: 12px;
   border-radius: 6px;
-  border: 1px solid gray;
+  border: 1px solid #aaa;
   margin-top: 5px;
 }
 
 button {
   margin-top: 20px;
   padding: 12px;
-  border: none;
+  width: 60%;
   background: #4a50d1;
   color: white;
+  border: none;
   border-radius: 8px;
   cursor: pointer;
 }
 
-/* TABELA TEŻ NA ŚRODKU */
-.table-box {
+button:hover {
+  background: #393fad;
+}
+
+/* TABELA – WYŚRODKOWANA */
+.table-wrapper {
   width: 100%;
-  max-width: 550px;
-  text-align: center;
+  max-width: 600px;
   margin-top: 30px;
+  text-align: center;
 }
 
 table {
   width: 100%;
-  border-collapse: collapse;
   background: white;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  border-collapse: collapse;
+  box-shadow: 0 0 10px rgba(0,0,0,0.18);
 }
 
 td, th {
-  border: 1px solid #ccc;
   padding: 12px;
+  border: 1px solid #ccc;
 }
