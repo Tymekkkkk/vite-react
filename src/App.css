@@ -1,35 +1,59 @@
-/* Ogólny układ aplikacji */
-.App {
+/* === STRUKTURA 3 DIVÓW === */
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Górny pasek */
+.top-bar {
+  width: 100%;
+  background: #4a50d1;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+/* Środkowy kontener */
+.content {
+  flex: 1;
   max-width: 900px;
   margin: 0 auto;
-  padding: 2rem;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  color: #333;
+  padding: 20px;
+}
+
+/* Stopka */
+.footer {
+  width: 100%;
+  background: #222;
+  color: white;
   text-align: center;
-  background-color: #f4f4f9;  /* Jasny tło dla całej strony */
-  min-height: 100vh;  /* Zapewnia, że strona wypełnia całą wysokość */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  padding: 15px;
+  font-size: 20px;
 }
 
-/* Nagłówek */
+
+/* === TWOJE ISTNIEJĄCE STYLI DOPASOWANE === */
+
 header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
+  text-align: center;
   color: #4a50d1;
+  margin-bottom: 15px;
 }
 
-/* Banner w formularzu */
+.App { /* już nie potrzebne, ale zostawiam żeby nic się nie sypało */
+  text-align: center;
+}
+
+/* Banner */
 .form-banner {
   width: 100%;
   max-width: 450px;
   border-radius: 10px;
-  display: block;
-  margin: 0 auto 20px;
+  margin-bottom: 20px;
 }
 
 /* Formularz */
@@ -40,29 +64,25 @@ form {
   background: #ffffff;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* Stylowanie dla inputów */
+/* Inputy */
 form div {
   margin-bottom: 15px;
   width: 100%;
-  text-align: center;
 }
 
 form label {
-  display: block;
   font-weight: bold;
   margin-bottom: 5px;
-  color: #333;
+  display: block;
 }
 
 form input {
   width: 90%;
-  max-width: 400px;
   padding: 12px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -78,8 +98,6 @@ form button {
   cursor: pointer;
   transition: 0.3s;
   width: 50%;
-  font-size: 16px;
-  margin-top: 10px;
 }
 
 form button:hover {
@@ -89,73 +107,34 @@ form button:hover {
 /* Tabela */
 table {
   width: 100%;
-  margin: 30px auto;
+  margin-top: 30px;
   border-collapse: collapse;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-table th, table td {
-  border: 1px solid #ddd;
-  padding: 12px;
-  text-align: center;
-}
-
-/* NAGŁÓWEK TABELI */
 table th {
-  background-color: #4a50d1;
+  background: #4a50d1;
   color: white;
 }
 
-/* Styl dla wierszy tabeli */
-table tr {
-  background-color: #eef0ff;   /* jasny delikatny fiolet */
+table td, table th {
+  border: 1px solid #ddd;
+  padding: 12px;
 }
 
-/* Styl przycisku Usuń */
+table tr {
+  background: #eef0ff;
+}
+
+/* Usuń */
 table button {
   background: #d9534f;
   color: white;
   border: none;
   padding: 6px 12px;
   border-radius: 4px;
-  cursor: pointer;
-  transition: background 0.3s;
 }
 
 table button:hover {
   background: #c9302c;
-}
-
-/* Responsywność */
-@media (max-width: 600px) {
-  table, thead, tbody, th, td, tr {
-    display: block;
-  }
-
-  table tr {
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    padding: 10px;
-    background: #eef0ff;
-  }
-
-  table td {
-    text-align: left;
-    padding: 8px;
-    border: none;
-    position: relative;
-  }
-
-  table th {
-    display: none;
-  }
-
-  form input {
-    width: 95%;
-  }
-
-  form button {
-    width: 80%;
-  }
 }
