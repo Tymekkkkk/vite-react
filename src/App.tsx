@@ -21,10 +21,7 @@ function App() {
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = (e: FormEvent) => {
@@ -40,117 +37,72 @@ function App() {
   return (
     <div className="layout">
 
-      {/* 🔵 GÓRNY PASEK */}
-      <div className="top-bar">
+      {/* GÓRNY PASEK */}
+      <header className="top-bar">
         <h1>REACT</h1>
-      </div>
+      </header>
 
-      {/* 🟣 ŚRODKOWY KONTENER */}
-      <div className="content">
+      {/* ŚRODEK */}
+      <main className="center">
 
-        {/* 🔥 NAJWAŻNIEJSZY KONTENER DO CENTROWANIA */}
-        <div className="center-box">
+        <h2 className="form-title">📋 Formularz danych osobowych</h2>
 
-          <header>
-            <h3>📋 Formularz danych osobowych</h3>
-          </header>
+        <form onSubmit={handleSubmit} className="form-box">
+          <img src={image} alt="banner" className="form-banner" />
 
-          <section className="form-section">
-            <form onSubmit={handleSubmit}>
-              <img src={image} alt="banner" className="form-banner" />
+          <label>Imię:</label>
+          <input type="text" name="imie" value={formData.imie} onChange={handleChange} required />
 
-              <div>
-                <label>Imię:</label>
-                <input
-                  type="text"
-                  name="imie"
-                  value={formData.imie}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
+          <label>Nazwisko:</label>
+          <input type="text" name="nazwisko" value={formData.nazwisko} onChange={handleChange} required />
 
-              <div>
-                <label>Nazwisko:</label>
-                <input
-                  type="text"
-                  name="nazwisko"
-                  value={formData.nazwisko}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
+          <label>Ulica:</label>
+          <input type="text" name="ulica" value={formData.ulica} onChange={handleChange} required />
 
-              <div>
-                <label>Ulica:</label>
-                <input
-                  type="text"
-                  name="ulica"
-                  value={formData.ulica}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
+          <label>Miasto:</label>
+          <input type="text" name="miasto" value={formData.miasto} onChange={handleChange} required />
 
-              <div>
-                <label>Miasto:</label>
-                <input
-                  type="text"
-                  name="miasto"
-                  value={formData.miasto}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
+          <button type="submit" className="add-btn">➕ Dodaj</button>
+        </form>
 
-              <button type="submit">➕ Dodaj</button>
-            </form>
-          </section>
+        <section className="table-wrap">
+          <h2>📑 Wprowadzone dane</h2>
 
-          <section className="table-section">
-            <h2>📑 Wprowadzone dane</h2>
-
-            {submittedData.length === 0 ? (
-              <p>Brak danych – wypełnij formularz powyżej.</p>
-            ) : (
-              <table>
-                <thead>
-                  <tr>
-                    <th>Imię</th>
-                    <th>Nazwisko</th>
-                    <th>Ulica</th>
-                    <th>Miasto</th>
-                    <th>Akcje</th>
+          {submittedData.length === 0 ? (
+            <p>Brak danych – wypełnij formularz powyżej.</p>
+          ) : (
+            <table>
+              <thead>
+                <tr>
+                  <th>Imię</th>
+                  <th>Nazwisko</th>
+                  <th>Ulica</th>
+                  <th>Miasto</th>
+                  <th>Akcje</th>
+                </tr>
+              </thead>
+              <tbody>
+                {submittedData.map((e, index) => (
+                  <tr key={index}>
+                    <td>{e.imie}</td>
+                    <td>{e.nazwisko}</td>
+                    <td>{e.ulica}</td>
+                    <td>{e.miasto}</td>
+                    <td>
+                      <button onClick={() => handleDelete(index)} className="delete-btn">
+                        ❌ Usuń
+                      </button>
+                    </td>
                   </tr>
-                </thead>
+                ))}
+              </tbody>
+            </table>
+          )}
+        </section>
 
-                <tbody>
-                  {submittedData.map((data, index) => (
-                    <tr key={index}>
-                      <td>{data.imie}</td>
-                      <td>{data.nazwisko}</td>
-                      <td>{data.ulica}</td>
-                      <td>{data.miasto}</td>
-                      <td>
-                        <button
-                          className="delete-btn"
-                          onClick={() => handleDelete(index)}
-                        >
-                          ❌ Usuń
-                        </button>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
+      </main>
 
-              </table>
-            )}
-          </section>
-
-        </div>
-      </div>
-
-      {/* 🟢 STOPKA */}
+      {/* STOPKA */}
       <footer className="footer">
         <p>2025</p>
       </footer>
