@@ -6,6 +6,12 @@
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: #333;
   text-align: center;
+  background-color: #f4f4f9;  /* Jasny tło dla całej strony */
+  min-height: 100vh;  /* Zapewnia, że strona wypełnia całą wysokość */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Nagłówek */
@@ -14,6 +20,7 @@ header {
   flex-direction: column;
   align-items: center;
   gap: 15px;
+  color: #4a50d1;
 }
 
 /* Banner w formularzu */
@@ -30,16 +37,16 @@ form {
   margin: 20px auto;
   max-width: 500px;
   padding: 20px;
-  background: #f9f9f9;
+  background: #ffffff;
   border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 100%;
-
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+/* Stylowanie dla inputów */
 form div {
   margin-bottom: 15px;
   width: 100%;
@@ -50,14 +57,16 @@ form label {
   display: block;
   font-weight: bold;
   margin-bottom: 5px;
+  color: #333;
 }
 
 form input {
   width: 90%;
   max-width: 400px;
-  padding: 10px;
+  padding: 12px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  font-size: 16px;
 }
 
 form button {
@@ -82,7 +91,7 @@ table {
   width: 100%;
   margin: 30px auto;
   border-collapse: collapse;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 table th, table td {
@@ -97,17 +106,12 @@ table th {
   color: white;
 }
 
-/* --- KLUCZOWA ZMIANA: jasny kolor dla KAŻDEGO nowego wiersza --- */
+/* Styl dla wierszy tabeli */
 table tr {
   background-color: #eef0ff;   /* jasny delikatny fiolet */
 }
 
-/* Usuwamy hover — nie jest już potrzebny */
-table tr:hover {
-  background-color: #eef0ff;
-}
-
-/* Styl dla przycisku usuń */
+/* Styl przycisku Usuń */
 table button {
   background: #d9534f;
   color: white;
