@@ -20,10 +20,14 @@
 /* Środkowy kontener */
 .content {
   flex: 1;
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* WYŚRODKOWANIE POZIOME */
+  justify-content: flex-start;
+  width: 100%;
+  padding-top: 20px;
 }
+
 
 /* Stopka */
 .footer {
@@ -137,4 +141,9 @@ table button {
 
 table button:hover {
   background: #c9302c;
+}
+.form-section, 
+.table-section {
+  width: 100%;
+  max-width: 600px; /* szerokość formularza na środku */
 }
